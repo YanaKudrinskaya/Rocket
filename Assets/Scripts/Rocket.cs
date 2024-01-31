@@ -44,7 +44,7 @@ public class Rocket : MonoBehaviour
 
     }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (state == State.Starting)
             PlayingCountdown();
@@ -148,7 +148,7 @@ public class Rocket : MonoBehaviour
         {
             energyTotal -= Mathf.RoundToInt(energyApply * Time.deltaTime);
             energyText.text = energyTotal.ToString();
-            rigidBody.AddRelativeForce(Vector3.up * flySpeed*Time.deltaTime);
+            rigidBody.AddRelativeForce(Vector3.up * flySpeed * Time.deltaTime);
             if (audioSource.isPlaying == false)
             {
                 audioSource.PlayOneShot(flySound);
